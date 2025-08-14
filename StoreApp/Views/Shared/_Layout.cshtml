@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <header>
+        Storeapp:Header
+        <partial name="_Navbar" />
+        @RenderSection("Top", false)
+    </header>
+    <main>
+
+        @RenderBody()
+    </main>
+
+    <footer>
+        Storeapp:footer
+        @RenderSection("Footer", false)
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

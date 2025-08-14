@@ -1,0 +1,19 @@
+﻿
+ @model List<Product>
+
+     @section Footer{
+         <div>
+             pnly for index footer
+         </div>
+     }
+
+    @foreach(Product prd in Model)
+    {
+        
+        <div>
+            <h1>@prd.Name</h1>
+            <h1>@prd.Price</h1>
+        <a href="/product/Get/@prd.Id"> Get Details </a>
+        </div>
+    }
+     
