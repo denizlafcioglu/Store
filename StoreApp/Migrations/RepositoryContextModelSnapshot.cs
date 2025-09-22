@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using StoreApp.Models;
+using Repositories;
 
 #nullable disable
 
@@ -21,7 +21,35 @@ namespace StoreApp.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("StoreApp.Model.Product", b =>
+            modelBuilder.Entity("Entities.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CategoryID"));
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("text");
+
+                    b.HasKey("CategoryID");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 1,
+                            CategoryName = "Book"
+                        },
+                        new
+                        {
+                            CategoryID = 2,
+                            CategoryName = "Elektronik"
+                        });
+                });
+
+            modelBuilder.Entity("Entities.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,7 +58,6 @@ namespace StoreApp.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<decimal>("Price")
@@ -39,6 +66,44 @@ namespace StoreApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Ada",
+                            Price = 300m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Elif",
+                            Price = 400m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Gizem",
+                            Price = 500m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "OSman",
+                            Price = 600m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Engin",
+                            Price = 700m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Begum",
+                            Price = 800m
+                        });
                 });
 #pragma warning restore 612, 618
         }

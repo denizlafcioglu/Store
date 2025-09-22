@@ -1,0 +1,51 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+
+#nullable disable
+
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
+namespace StoreApp.Migrations
+{
+    /// <inheritdoc />
+    public partial class init : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Price = table.Column<decimal>(type: "numeric", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "Name", "Price" },
+                values: new object[,]
+                {
+                    { 1, "Ada", 300m },
+                    { 2, "Elif", 400m },
+                    { 3, "Gizem", 500m },
+                    { 4, "OSman", 600m },
+                    { 5, "Engin", 700m },
+                    { 6, "Begum", 800m }
+                });
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Products");
+        }
+    }
+}
