@@ -5,11 +5,11 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace StoreApp.Components
 {
-    public class ProductSummary : ViewComponent
+    public class ProductSummaryViewComponent : ViewComponent
     {
         private readonly IServiceManager _serviceManager;
 
-        public ProductSummary(IServiceManager serviceManager)
+        public ProductSummaryViewComponent(IServiceManager serviceManager)
         {
             _serviceManager = serviceManager;
         }

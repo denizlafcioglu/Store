@@ -18,6 +18,12 @@ namespace Services
             _manager = manager;
         }
 
+        public void CreateProduct(Product product)
+        {
+            _manager.Product.Create(product);
+            _manager.Save();
+                }
+
         public IEnumerable<Product> GetAllProducts(bool trackChanges)
         {
             return _manager.Product.GetAllProducts(trackChanges);

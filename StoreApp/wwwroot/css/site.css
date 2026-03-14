@@ -1,1 +1,24 @@
-﻿
+﻿/*.card.custom-card {
+    width: 18rem;
+    height: 20rem;*/ /* kartın yüksekliğini sabitler */
+/*}
+
+    .card.custom-card img {
+        height: 150px;*/ /* resmin yüksekliğini ayarlar */
+        /*object-fit: cover;*/ /* taşmayı engeller */
+    /*}
+
+.card-text {
+    max-height: 3rem;*/ /* en fazla 3 satır */
+    /*overflow: hidden;
+    text-overflow: ellipsis;
+}*/
+
+*{
+
+    background-color:grey;
+}
+.navbar{
+    padding:0;
+    margin:0;
+}

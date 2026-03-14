@@ -32,8 +32,8 @@ namespace Repositories
 
             modelBuilder.Entity<Category>()
                  .HasData(
-                new Category() { CategoryID=1, CategoryName = "Book"},
-                    new Category() { CategoryID = 2, CategoryName = "Elektronik" }
+                new Category() { CategoryID= 1, CategoryName = "Book"},
+                     new Category() { CategoryID = 2, CategoryName = "Elektronik"}
 
                 );
 
